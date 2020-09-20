@@ -1,0 +1,401 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Covid.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Covid.Data.Attributes.AuditIgnoreAttribute">
+            <summary>
+            Marks a property on a DTO to be excluded from the Audit.
+            </summary>
+            <seealso cref="T:System.Attribute" />
+        </member>
+        <member name="T:Covid.Data.DbContexts.DataContext">
+            <summary>
+            Database Context.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext" />
+            <summary>
+            Database Context - DB Sets.
+            </summary>
+            <seealso cref="T:Microsoft.EntityFrameworkCore.DbContext" />
+        </member>
+        <member name="M:Covid.Data.DbContexts.DataContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.DbContexts.DataContext"/> class.
+            </summary>
+            <param name="options">DBContext Options.</param>
+        </member>
+        <member name="M:Covid.Data.DbContexts.DataContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Override this method to further configure the model that was discovered by convention from the entity types
+            exposed in dbset properties on your derived context. The resulting model may be cached
+            and re-used for subsequent instances of your derived context.
+            </summary>
+            <param name="builder">The builder being used to construct the model for this context. Databases (and other extensions) typically
+            define extension methods on this object that allow you to configure aspects of the model that are specific
+            to a given database.</param>
+            <exception cref="T:System.ArgumentNullException">modelBuilder.</exception>
+            <remarks>
+            If a model is explicitly set on the options for this context" />)
+            then this method will not be run.
+            </remarks>
+        </member>
+        <member name="M:Covid.Data.DbContexts.DataContext.DisableCascadeDeletes(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Disable the cascade deletes on all tables.
+            </summary>
+            <param name="modelBuilder">The model builder.</param>
+        </member>
+        <member name="P:Covid.Data.DbContexts.DataContext.AuditHeaders">
+            <summary>
+            Gets or sets the Audit Headers.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.DbContexts.DataContext.AuditDetails">
+            <summary>
+            Gets or sets the Audit Details.
+            </summary>
+        </member>
+        <member name="T:Covid.Data.Dtos.AuditDetailDto">
+            <summary>
+            Audit Details DTO.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.AuditDetailDto.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Dtos.AuditDetailDto"/> class.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.AuditDetailDto.#ctor(System.Guid,System.Guid,System.String,System.String,System.Guid,System.String,System.String,Covid.Domain.Constants.EDatabaseAction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Dtos.AuditDetailDto"/> class.
+            </summary>
+            <param name="id">Audit Detail Id.</param>
+            <param name="auditHeaderId">Audit Header Id.</param>
+            <param name="tableName">Table Name.</param>
+            <param name="columnName">Column Name.</param>
+            <param name="recordId">Record Id.</param>
+            <param name="oldValue">Old Value.</param>
+            <param name="newValue">New Value.</param>
+            <param name="databaseAction">Database Action.</param>
+        </member>
+        <member name="M:Covid.Data.Dtos.AuditDetailDto.#ctor(System.Guid,System.Guid,System.String,System.String,System.Guid,System.String,System.String,Covid.Domain.Constants.EDatabaseAction,Covid.Data.Dtos.AuditHeaderDto)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Dtos.AuditDetailDto"/> class.
+            </summary>
+            <param name="id">Audit Detail Id.</param>
+            <param name="auditHeaderId">Audit Header Id.</param>
+            <param name="tableName">Table Name.</param>
+            <param name="columnName">Column Name.</param>
+            <param name="recordId">Record Id.</param>
+            <param name="oldValue">Old Value.</param>
+            <param name="newValue">New Value.</param>
+            <param name="databaseAction">Database Action.</param>
+            <param name="auditHeader">Audit Header.</param>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditDetailDto.Id">
+            <summary>
+            Gets the Audit Detail Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditDetailDto.AuditHeaderId">
+            <summary>
+            Gets the Audit Header Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditDetailDto.TableName">
+            <summary>
+            Gets the Table Name.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditDetailDto.ColumnName">
+            <summary>
+            Gets the Column Name.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditDetailDto.RecordId">
+            <summary>
+            Gets the Record Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditDetailDto.OldValue">
+            <summary>
+            Gets the Old Value.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditDetailDto.NewValue">
+            <summary>
+            Gets the New Value.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditDetailDto.DatabaseAction">
+            <summary>
+            Gets the Database Action.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditDetailDto.AuditHeader">
+            <summary>
+            Gets the Audit Header.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.AuditDetailDto.ToDto(Covid.Domain.DomainObjects.AuditDetails.IAuditDetail)">
+            <summary>
+            Converts domain object to DTO.
+            </summary>
+            <param name="auditDetail">Audit Detail.</param>
+            <returns>Audit Detail DTO.</returns>
+        </member>
+        <member name="M:Covid.Data.Dtos.AuditDetailDto.ToDomain">
+            <summary>
+            Converts instance to domain object.
+            </summary>
+            <returns>Audit Detail.</returns>
+        </member>
+        <member name="T:Covid.Data.Dtos.AuditHeaderDto">
+            <summary>
+            Audit Header DTO.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.AuditHeaderDto.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Dtos.AuditHeaderDto"/> class.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.AuditHeaderDto.#ctor(System.Guid,Covid.Domain.Constants.EAuditEvent,System.DateTime,System.String,System.Guid,System.Collections.Generic.IList{Covid.Data.Dtos.AuditDetailDto})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Dtos.AuditHeaderDto"/> class.
+            </summary>
+            <param name="id">Audit Header Id.</param>
+            <param name="auditEvent">Audit Event.</param>
+            <param name="timeStamp">Time Stamp.</param>
+            <param name="auditDetails">Audit Details.</param>
+            <param name="username">Username.</param>
+            <param name="correlationId">Correlation Id.</param>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditHeaderDto.Id">
+            <summary>
+            Gets Audit Header Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditHeaderDto.AuditEvent">
+            <summary>
+            Gets the Audit Event.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditHeaderDto.TimeStamp">
+            <summary>
+            Gets the Time Stamp.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditHeaderDto.Username">
+            <summary>
+            Gets the Username.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditHeaderDto.CorrelationId">
+            <summary>
+            Gets the Correlation Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.AuditHeaderDto.AuditDetails">
+            <summary>
+            Gets the Audit Details.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.AuditHeaderDto.ToDtoWithAuditDetails(Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails)">
+            <summary>
+            Converts to DTO with AuditDetails.
+            </summary>
+            <param name="auditHeader">Audit Header.</param>
+            <returns>Audit Header DTO with Audit Details.</returns>
+        </member>
+        <member name="M:Covid.Data.Dtos.AuditHeaderDto.ToDomain">
+            <summary>
+            Converts instance to domain object.
+            </summary>
+            <returns>Audit Header.</returns>
+        </member>
+        <member name="M:Covid.Data.Dtos.AuditHeaderDto.ToDomainWithAuditDetails">
+            <summary>
+            Converts instance to domain object.
+            </summary>
+            <returns>Audit Header.</returns>
+        </member>
+        <member name="T:Covid.Data.Dtos.BaseDto">
+            <summary>
+            Base model for DTOs.
+            </summary>
+        </member>
+        <member name="T:Covid.Data.Extensions.Reflection.ReflectionExtensions">
+            <summary>
+            Reflection Extension methods.
+            </summary>
+            <summary>
+            Reflection Extension methods - GetValueAsString.
+            </summary>
+            <summary>
+            Reflection Extension methods.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Extensions.Reflection.ReflectionExtensions.GetAttributes(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Gets the attributes.
+            </summary>
+            <param name="instance">The Instance.</param>
+            <returns>Property Attributes.</returns>
+        </member>
+        <member name="M:Covid.Data.Extensions.Reflection.ReflectionExtensions.GetValueAsString(System.Reflection.PropertyInfo,System.Object)">
+            <summary>
+            Gets the Property Value from the Object as a string.
+            </summary>
+            <param name="propertyInfo">Property Information.</param>
+            <param name="o">Object.</param>
+            <returns>Property Value as a sting.</returns>
+        </member>
+        <member name="M:Covid.Data.Extensions.Reflection.ReflectionExtensions.IsCollection(System.Reflection.PropertyInfo)">
+            <summary>
+            Determines whether this instance is a collection.
+            </summary>
+            <param name="instance">The instance.</param>
+            <returns>
+              <c>true</c> if the specified instance is collection; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Covid.Data.Models.PropertyAttributeSummary">
+            <summary>
+            Class detailing the known property attributes.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Models.PropertyAttributeSummary.#ctor(Covid.Data.Attributes.AuditIgnoreAttribute,System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute,System.ComponentModel.DataAnnotations.KeyAttribute,System.ComponentModel.DataAnnotations.Schema.NotMappedAttribute,System.ComponentModel.DataAnnotations.RangeAttribute)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Models.PropertyAttributeSummary"/> class.
+            </summary>
+            <param name="auditIgnore">Audit Ignore attribute.</param>
+            <param name="foreignKey">Foreign Key attribute.</param>
+            <param name="key">Key attribute.</param>
+            <param name="notMapped">Not Mapped attribute.</param>
+            <param name="range">Range attribute.</param>
+        </member>
+        <member name="P:Covid.Data.Models.PropertyAttributeSummary.AuditIgnore">
+            <summary>
+            Gets the Audit Ignore attribute.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Models.PropertyAttributeSummary.ForeignKey">
+            <summary>
+            Gets the Foreign Key attribute.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Models.PropertyAttributeSummary.Key">
+            <summary>
+            Gets the key attribute.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Models.PropertyAttributeSummary.NotMapped">
+            <summary>
+            Gets the Not Mapped attribute.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Models.PropertyAttributeSummary.Range">
+            <summary>
+            Gets the range attribute.
+            </summary>
+        </member>
+        <member name="T:Covid.Data.Resources.ExceptionResource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Resources.ExceptionResource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Resources.ExceptionResource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Resources.ExceptionResource.CannotConvertTo___If___IsNull">
+            <summary>
+              Looks up a localized string similar to Cannot convert to {0} if {1} is null..
+            </summary>
+        </member>
+        <member name="T:Covid.Data.Utilities.Audit">
+            <summary>
+            Audit routines.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Utilities.Audit.AuditCreate(Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails,Covid.Data.Dtos.BaseDto,System.Guid)">
+            <summary>
+            Audits the create.
+            </summary>
+            <param name="auditHeader">Audit Header.</param>
+            <param name="newObject">New value.</param>
+            <param name="recordId">Record Id.</param>
+        </member>
+        <member name="M:Covid.Data.Utilities.Audit.AuditUpdate(Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails,System.Guid,Covid.Data.Dtos.BaseDto,Covid.Data.Dtos.BaseDto)">
+            <summary>
+            Audits the update.
+            </summary>
+            <param name="auditHeader">Audit Header.</param>
+            <param name="recordId">Record Id.</param>
+            <param name="oldObject">Old Value.</param>
+            <param name="newObject">New Value.</param>
+        </member>
+        <member name="T:Covid.Data.Utilities.CompareNullable">
+            <summary>
+            Compare routines that handles if one/both of the values are null.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Utilities.CompareNullable.AreEqual(System.String,System.String)">
+            <summary>
+            Compares two string values.
+            </summary>
+            <param name="a">1st value.</param>
+            <param name="b">2nd value.</param>
+            <returns>Returns true if the values are equal.</returns>
+        </member>
+        <member name="M:Covid.Data.Utilities.CompareNullable.AreEqual(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Compares two integer values.
+            </summary>
+            <param name="a">1st value.</param>
+            <param name="b">2nd value.</param>
+            <returns>Returns true if the values are equal.</returns>
+        </member>
+        <member name="M:Covid.Data.Utilities.CompareNullable.AreEqual(System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+            <summary>
+            Compares two decimal values.
+            </summary>
+            <param name="a">1st value.</param>
+            <param name="b">2nd value.</param>
+            <returns>Returns true if the values are equal.</returns>
+        </member>
+        <member name="M:Covid.Data.Utilities.CompareNullable.AreEqual(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Compares two datetime values.
+            </summary>
+            <param name="a">1st value.</param>
+            <param name="b">2nd value.</param>
+            <returns>Returns true if the values are equal.</returns>
+        </member>
+        <member name="T:Covid.Data.Utilities.PropertyUtilities">
+            <summary>
+            Property Utilities.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Utilities.PropertyUtilities.IsAuditableColumn(System.ComponentModel.PropertyDescriptorCollection,System.Reflection.PropertyInfo)">
+            <summary>
+            Determines whether [is auditable column] [the specified property descriptors].
+            </summary>
+            <param name="propertyDescriptors">Property Descriptors.</param>
+            <param name="propertyInfo">Property Information.</param>
+            <returns>
+              <c>true</c> if [is auditable column] [the specified property descriptors]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+    </members>
+</doc>

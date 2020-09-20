@@ -1,0 +1,505 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Covid.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Covid.Domain.Constants.EAuditEvent">
+            <summary>
+            Audit Events.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.Constants.EAuditEvent.Unknown">
+            <summary>
+            Unknown
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.Constants.EAuditEvent.OrganisationMaintenance">
+            <summary>
+            Organisation Maintenance
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.Constants.EDatabaseAction">
+            <summary>
+            Database Action.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.Constants.EDatabaseAction.Create">
+            <summary>
+            Create
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.Constants.EDatabaseAction.Update">
+            <summary>
+            Update
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.Constants.EDatabaseAction.Delete">
+            <summary>
+            Delete
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.ActiveCases.ActiveCase">
+            <summary>
+            Active Case.
+            </summary>
+            <seealso cref="T:Covid.Domain.DomainObjects.BaseDomainModel" />
+            <seealso cref="T:Covid.Domain.DomainObjects.ActiveCases.IActiveCase" />
+        </member>
+        <member name="M:Covid.Domain.DomainObjects.ActiveCases.ActiveCase.#ctor(System.Guid,Covid.Domain.DomainObjects.Locations.ILocation,System.DateTime,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.DomainObjects.ActiveCases.ActiveCase"/> class.
+            </summary>
+            <param name="id">Active Case Id.</param>
+            <param name="location">Location.</param>
+            <param name="date">Date.</param>
+            <param name="caseCount">Case Count.</param>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.ActiveCases.ActiveCase.Id">
+            <inheritdoc/>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.ActiveCases.ActiveCase.Location">
+            <inheritdoc/>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.ActiveCases.ActiveCase.Date">
+            <inheritdoc />
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.ActiveCases.ActiveCase.CaseCount">
+            <inheritdoc />
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.ActiveCases.IActiveCase">
+            <summary>
+            Location.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.ActiveCases.IActiveCase.Id">
+            <summary>
+            Gets the Active Case Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.ActiveCases.IActiveCase.Location">
+            <summary>
+            Gets the Location.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.ActiveCases.IActiveCase.Date">
+            <summary>
+            Gets the Date.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.ActiveCases.IActiveCase.CaseCount">
+            <summary>
+            Gets the Case Count.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.ActiveCases.Metadata.CaseCount">
+            <summary>
+            Metadata for the <see cref="P:Covid.Domain.DomainObjects.ActiveCases.IActiveCase.CaseCount"></see> property.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.DomainObjects.ActiveCases.Metadata.CaseCount.MinValue">
+            <summary>
+            The minimum value.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.DomainObjects.ActiveCases.Metadata.CaseCount.MaxValue">
+            <summary>
+            The maximum value.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.AuditDetails.AuditDetail">
+            <summary>
+            Audit Detail.
+            </summary>
+            <seealso cref="T:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail" />
+        </member>
+        <member name="M:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.#ctor(System.Guid,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader,System.String,System.String,System.Guid,System.String,System.String,Covid.Domain.Constants.EDatabaseAction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.DomainObjects.AuditDetails.AuditDetail"/> class.
+            </summary>
+            <param name="id">Audit Detail Id.</param>
+            <param name="auditHeader">Audit Header.</param>
+            <param name="tableName">Table Name.</param>
+            <param name="columnName">Column Name.</param>
+            <param name="recordId">Record Id.</param>
+            <param name="oldValue">Old Value.</param>
+            <param name="newValue">New Value.</param>
+            <param name="databaseAction">Database Action.</param>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.Id">
+            <inheritdoc/>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.TableName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.ColumnName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.RecordId">
+            <inheritdoc/>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.OldValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.NewValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.DatabaseAction">
+            <inheritdoc/>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.AuditHeader">
+            <inheritdoc/>
+        </member>
+        <member name="M:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.CreateForCreate(Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader,System.String,System.String,System.Guid,System.String)">
+            <summary>
+            Factory method for creating for Create event.
+            </summary>
+            <param name="auditHeader">Audit Header.</param>
+            <param name="tableName">Table Name.</param>
+            <param name="columnName">Column Name.</param>
+            <param name="recordId">Record Id.</param>
+            <param name="newValue">The new value.</param>
+            <returns>Audit Detail.</returns>
+        </member>
+        <member name="M:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.CreateForUpdate(Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader,System.String,System.String,System.Guid,System.String,System.String)">
+            <summary>
+            Factory method for creating for Update event.
+            </summary>
+            <param name="auditHeader">Audit Header.</param>
+            <param name="tableName">Table Name.</param>
+            <param name="columnName">Column Name.</param>
+            <param name="recordId">Record Id.</param>
+            <param name="oldValue">Old Value.</param>
+            <param name="newValue">New Value.</param>
+            <returns>Audit Detail.</returns>
+        </member>
+        <member name="M:Covid.Domain.DomainObjects.AuditDetails.AuditDetail.CreateForDelete(Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader,System.String,System.Guid)">
+            <summary>
+            Factory method for creating for Delete event.
+            </summary>
+            <param name="auditHeader">Audit Header.</param>
+            <param name="tableName">Table Name.</param>
+            <param name="recordId">Record Id.</param>
+            <returns>Audit Detail.</returns>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail">
+            <summary>
+            Audit Detail.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail.Id">
+            <summary>
+            Gets the Audit Detail Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail.TableName">
+            <summary>
+            Gets the Table Name.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail.ColumnName">
+            <summary>
+            Gets the Column Name.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail.RecordId">
+            <summary>
+            Gets the Record Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail.OldValue">
+            <summary>
+            Gets the Old Value.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail.NewValue">
+            <summary>
+            Gets the New Value.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail.DatabaseAction">
+            <summary>
+            Gets the Database Action.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail.AuditHeader">
+            <summary>
+            Gets the Audit Header.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.AuditDetails.Metadata.ColumnName">
+            <summary>
+            Metadata for the <see cref="P:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail.ColumnName"></see> property.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.DomainObjects.AuditDetails.Metadata.ColumnName.MinLength">
+            <summary>
+            The minimum length.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.DomainObjects.AuditDetails.Metadata.ColumnName.MaxLength">
+            <summary>
+            The maximum length.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.AuditDetails.Metadata.TableName">
+            <summary>
+            Metadata for the <see cref="P:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail.TableName"></see> property.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.DomainObjects.AuditDetails.Metadata.TableName.MinLength">
+            <summary>
+            The minimum length.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.DomainObjects.AuditDetails.Metadata.TableName.MaxLength">
+            <summary>
+            The maximum length.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.AuditHeaders.AuditHeader">
+            <summary>
+            Audit Header.
+            </summary>
+            <seealso cref="T:Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader" />
+        </member>
+        <member name="M:Covid.Domain.DomainObjects.AuditHeaders.AuditHeader.#ctor(System.Guid,Covid.Domain.Constants.EAuditEvent,System.DateTime,System.String,System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.DomainObjects.AuditHeaders.AuditHeader"/> class.
+            </summary>
+            <param name="id">Audit Header Id.</param>
+            <param name="auditEvent">Audit Event.</param>
+            <param name="timeStamp">Time Stamp.</param>
+            <param name="username">Username.</param>
+            <param name="correlationId">Correlation Id.</param>
+        </member>
+        <member name="M:Covid.Domain.DomainObjects.AuditHeaders.AuditHeader.#ctor(Covid.Domain.Constants.EAuditEvent,System.String,System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.DomainObjects.AuditHeaders.AuditHeader"/> class.
+            </summary>
+            <param name="auditEvent">Audit Event.</param>
+            <param name="username">Username.</param>
+            <param name="correlationId">Correlation Id.</param>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.AuditHeader.Id">
+            <summary>
+            Gets Audit Header Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.AuditHeader.AuditEvent">
+            <summary>
+            Gets the Audit Event.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.AuditHeader.TimeStamp">
+            <summary>
+            Gets the Time Stamp.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.AuditHeader.Username">
+            <summary>
+            Gets the Username.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.AuditHeader.CorrelationId">
+            <summary>
+            Gets the Correlation Id.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.AuditHeaders.AuditHeaderWithAuditDetails">
+            <summary>
+            Audit Header with Audit Details.
+            </summary>
+            <seealso cref="T:Covid.Domain.DomainObjects.AuditHeaders.AuditHeader" />
+            <seealso cref="T:Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails" />
+        </member>
+        <member name="M:Covid.Domain.DomainObjects.AuditHeaders.AuditHeaderWithAuditDetails.#ctor(System.Guid,Covid.Domain.Constants.EAuditEvent,System.DateTime,System.Collections.Generic.IList{Covid.Domain.DomainObjects.AuditDetails.IAuditDetail},System.String,System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.DomainObjects.AuditHeaders.AuditHeaderWithAuditDetails"/> class.
+            </summary>
+            <param name="id">Audit Header Id.</param>
+            <param name="auditEvent">Audit Event.</param>
+            <param name="timeStamp">Time Stamp.</param>
+            <param name="auditDetails">Audit Details.</param>
+            <param name="username">Username.</param>
+            <param name="correlationId">Correlation Id.</param>
+        </member>
+        <member name="M:Covid.Domain.DomainObjects.AuditHeaders.AuditHeaderWithAuditDetails.#ctor(Covid.Domain.Constants.EAuditEvent,System.String,System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.DomainObjects.AuditHeaders.AuditHeaderWithAuditDetails"/> class.
+            </summary>
+            <param name="auditEvent">Audit Event.</param>
+            <param name="username">Username.</param>
+            <param name="correlationId">Correlation Id.</param>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.AuditHeaderWithAuditDetails.AuditDetails">
+            <summary>
+            Gets the Audit Details.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader">
+            <summary>
+            Audit Header.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader.Id">
+            <summary>
+            Gets Audit Header Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader.AuditEvent">
+            <summary>
+            Gets the Audit Event.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader.TimeStamp">
+            <summary>
+            Gets the Time Stamp.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader.Username">
+            <summary>
+            Gets the Username.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader.CorrelationId">
+            <summary>
+            Gets the Correlation Id.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails">
+            <summary>
+            Audit Header with Audit Details.
+            </summary>
+            <seealso cref="T:Covid.Domain.DomainObjects.AuditDetails.IAuditDetail" />
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails.AuditDetails">
+            <summary>
+            Gets the Audit Details.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.AuditHeaders.Metadata.Username">
+            <summary>
+            Metadata for the <see cref="P:Covid.Domain.DomainObjects.AuditHeaders.IAuditHeader.Username"></see> property.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.DomainObjects.AuditHeaders.Metadata.Username.MinLength">
+            <summary>
+            The minimum length.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.DomainObjects.AuditHeaders.Metadata.Username.MaxLength">
+            <summary>
+            The maximum length.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.BaseDomainModel">
+            <summary>
+            Base model for all models in the Domain project.
+            </summary>
+        </member>
+        <member name="M:Covid.Domain.DomainObjects.BaseDomainModel.Validate(Covid.Domain.DomainObjects.BaseDomainModel)">
+            <summary>
+            Validates the specified model.
+            </summary>
+            <param name="model">The model.</param>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.Locations.ILocation">
+            <summary>
+            Location.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.Locations.ILocation.Id">
+            <summary>
+            Gets the Location Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.Locations.ILocation.Name">
+            <summary>
+            Gets the Location Name.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.Locations.Location">
+            <summary>
+            Location.
+            </summary>
+            <seealso cref="T:Covid.Domain.DomainObjects.Locations.ILocation" />
+        </member>
+        <member name="M:Covid.Domain.DomainObjects.Locations.Location.#ctor(System.Guid,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.DomainObjects.Locations.Location"/> class.
+            </summary>
+            <param name="id">Location Id.</param>
+            <param name="name">Location Name.</param>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.Locations.Location.Id">
+            <inheritdoc/>
+        </member>
+        <member name="P:Covid.Domain.DomainObjects.Locations.Location.Name">
+            <inheritdoc/>
+        </member>
+        <member name="T:Covid.Domain.DomainObjects.Locations.Metadata.Name">
+            <summary>
+            Metadata for the <see cref="P:Covid.Domain.DomainObjects.Locations.ILocation.Name"></see> property.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.DomainObjects.Locations.Metadata.Name.MinLength">
+            <summary>
+            The minimum length.
+            </summary>
+        </member>
+        <member name="F:Covid.Domain.DomainObjects.Locations.Metadata.Name.MaxLength">
+            <summary>
+            The maximum length.
+            </summary>
+        </member>
+        <member name="T:Covid.Domain.Exceptions.ValidationResultException">
+            <summary>
+            ValidationException.
+            </summary>
+        </member>
+        <member name="M:Covid.Domain.Exceptions.ValidationResultException.#ctor(System.ComponentModel.DataAnnotations.ValidationResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.Exceptions.ValidationResultException"/> class.
+            </summary>
+            <param name="result">Validation result.</param>
+        </member>
+        <member name="M:Covid.Domain.Exceptions.ValidationResultException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.Exceptions.ValidationResultException"/> class.
+            </summary>
+        </member>
+        <member name="M:Covid.Domain.Exceptions.ValidationResultException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.Exceptions.ValidationResultException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Covid.Domain.Exceptions.ValidationResultException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.Exceptions.ValidationResultException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Covid.Domain.Exceptions.ValidationResultException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Domain.Exceptions.ValidationResultException"/> class.
+            </summary>
+            <param name="info">Serialization Info.</param>
+            <param name="context">Streaming Context.</param>
+        </member>
+        <member name="T:Covid.Domain.ValidationAttributes.ValidIdAttribute">
+            <summary>
+            Validate Id.
+            </summary>
+            <seealso cref="T:System.ComponentModel.DataAnnotations.ValidationAttribute" />
+        </member>
+        <member name="M:Covid.Domain.ValidationAttributes.ValidIdAttribute.IsValid(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Covid.Domain.ValidationAttributes.ValidIdAttribute.FormatErrorMessage(System.String)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
