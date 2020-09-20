@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Covid.Migration</name>
+    </assembly>
+    <members>
+        <member name="T:Covid.Migration.DbContexts.MigrationContext">
+            <summary>
+            Migration Context.
+            </summary>
+            <seealso cref="T:Microsoft.EntityFrameworkCore.DbContext" />
+        </member>
+        <member name="M:Covid.Migration.DbContexts.MigrationContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Migration.DbContexts.MigrationContext"/> class.
+            </summary>
+        </member>
+        <member name="M:Covid.Migration.DbContexts.MigrationContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Covid.Migration.Migrations.Init">
+            <summary>
+            Initial database.
+            </summary>
+            <seealso cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" />
+        </member>
+        <member name="M:Covid.Migration.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Covid.Migration.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Covid.Migration.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Covid.Migration.Program">
+            <summary>
+            Migrations.
+            </summary>
+        </member>
+        <member name="M:Covid.Migration.Program.Main">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+        </member>
+    </members>
+</doc>
