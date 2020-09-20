@@ -14,6 +14,11 @@ namespace Covid.Data.DbContexts
     public partial class DataContext
     {
         /// <summary>
+        /// Gets or sets the Active Cases.
+        /// </summary>
+        public DbSet<ActiveCaseDto> ActiveCases { get; set; } = null!;
+
+        /// <summary>
         /// Gets or sets the Audit Headers.
         /// </summary>
         public DbSet<AuditHeaderDto> AuditHeaders { get; set; } = null!;

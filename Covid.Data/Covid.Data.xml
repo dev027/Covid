@@ -47,6 +47,11 @@
             </summary>
             <param name="modelBuilder">The model builder.</param>
         </member>
+        <member name="P:Covid.Data.DbContexts.DataContext.ActiveCases">
+            <summary>
+            Gets or sets the Active Cases.
+            </summary>
+        </member>
         <member name="P:Covid.Data.DbContexts.DataContext.AuditHeaders">
             <summary>
             Gets or sets the Audit Headers.
@@ -56,6 +61,68 @@
             <summary>
             Gets or sets the Audit Details.
             </summary>
+        </member>
+        <member name="P:Covid.Data.DbContexts.DataContext.Locations">
+            <summary>
+            Gets or sets the Locations.
+            </summary>
+        </member>
+        <member name="T:Covid.Data.Dtos.ActiveCaseDto">
+            <summary>
+            Organisation DTO.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.ActiveCaseDto.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Dtos.ActiveCaseDto"/> class.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.ActiveCaseDto.#ctor(System.Guid,System.Guid,System.DateTime,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Dtos.ActiveCaseDto"/> class.
+            </summary>
+            <param name="id">Active Case Id.</param>
+            <param name="locationId">Location Id.</param>
+            <param name="date">Date.</param>
+            <param name="caseCount">Case Count.</param>
+        </member>
+        <member name="P:Covid.Data.Dtos.ActiveCaseDto.Id">
+            <summary>
+            Gets the Active Case Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.ActiveCaseDto.LocationId">
+            <summary>
+            Gets the Location Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.ActiveCaseDto.Date">
+            <summary>
+            Gets the Date.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.ActiveCaseDto.CaseCount">
+            <summary>
+            Gets the Case Count.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.ActiveCaseDto.Location">
+            <summary>
+            Gets the Location.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.ActiveCaseDto.ToDto(Covid.Domain.DomainObjects.ActiveCases.IActiveCase)">
+            <summary>
+            Converts domain object to DTO.
+            </summary>
+            <param name="activeCase">Active Case.</param>
+            <returns>Active Case DTO.</returns>
+        </member>
+        <member name="M:Covid.Data.Dtos.ActiveCaseDto.ToDomain">
+            <summary>
+            Converts instance to domain object.
+            </summary>
+            <returns>Active Case.</returns>
         </member>
         <member name="T:Covid.Data.Dtos.AuditDetailDto">
             <summary>
@@ -227,6 +294,46 @@
             Base model for DTOs.
             </summary>
         </member>
+        <member name="T:Covid.Data.Dtos.LocationDto">
+            <summary>
+            Organisation DTO.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.LocationDto.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Dtos.LocationDto"/> class.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.LocationDto.#ctor(System.Guid,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Dtos.LocationDto"/> class.
+            </summary>
+            <param name="id">Location Id.</param>
+            <param name="name">Location Name.</param>
+        </member>
+        <member name="P:Covid.Data.Dtos.LocationDto.Id">
+            <summary>
+            Gets the Location Id.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.Dtos.LocationDto.Name">
+            <summary>
+            Gets the Location Name.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Dtos.LocationDto.ToDto(Covid.Domain.DomainObjects.Locations.ILocation)">
+            <summary>
+            Converts domain object to DTO.
+            </summary>
+            <param name="location">Location.</param>
+            <returns>Location DTO.</returns>
+        </member>
+        <member name="M:Covid.Data.Dtos.LocationDto.ToDomain">
+            <summary>
+            Converts instance to domain object.
+            </summary>
+            <returns>Location.</returns>
+        </member>
         <member name="T:Covid.Data.Extensions.Reflection.ReflectionExtensions">
             <summary>
             Reflection Extension methods.
@@ -301,6 +408,197 @@
             <summary>
             Gets the range attribute.
             </summary>
+        </member>
+        <member name="T:Covid.Data.Repositories.ActiveCases.ActiveCaseRepository">
+            <summary>
+            Organisation Header Repository.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.ActiveCaseRepository.#ctor(Microsoft.Extensions.Logging.ILogger{Covid.Data.Repositories.ActiveCases.ActiveCaseRepository},Covid.Data.DbContexts.DataContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Repositories.ActiveCases.ActiveCaseRepository"/> class.
+            </summary>
+            <param name="logger">Logger.</param>
+            <param name="dataContext">Data context.</param>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.ActiveCaseRepository.CreateAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails,Covid.Domain.DomainObjects.ActiveCases.IActiveCase)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.ActiveCaseRepository.GetAllAsync(Covid.Utilities.Models.Whos.IWho)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.ActiveCaseRepository.GetByIdAsync(Covid.Utilities.Models.Whos.IWho,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.ActiveCaseRepository.HaveAsync(Covid.Utilities.Models.Whos.IWho)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.ActiveCaseRepository.UpdateAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails,Covid.Domain.DomainObjects.ActiveCases.IActiveCase)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Covid.Data.Repositories.ActiveCases.IActiveCaseRepository">
+            <summary>
+            Organisation Repository.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.IActiveCaseRepository.CreateAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails,Covid.Domain.DomainObjects.ActiveCases.IActiveCase)">
+            <summary>
+            Creates the Organisation.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="auditHeader">Audit Header.</param>
+            <param name="activeCase">Active Case.</param>
+            <returns>Nothing.</returns>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.IActiveCaseRepository.GetAllAsync(Covid.Utilities.Models.Whos.IWho)">
+            <summary>
+            Gets all active cases.
+            </summary>
+            <param name="who">Who details.</param>
+            <returns>List of Active Cases.</returns>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.IActiveCaseRepository.GetByIdAsync(Covid.Utilities.Models.Whos.IWho,System.Guid)">
+            <summary>
+            Gets the Active Case by Id.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="activeCaseId">Active Case Id.</param>
+            <returns>Active Case (Null=Not Found).</returns>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.IActiveCaseRepository.HaveAsync(Covid.Utilities.Models.Whos.IWho)">
+            <summary>
+            Checks if we have Active Cases.
+            </summary>
+            <param name="who">Who details.</param>
+            <returns>True if Active Cases exist.</returns>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.IActiveCaseRepository.UpdateAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails,Covid.Domain.DomainObjects.ActiveCases.IActiveCase)">
+            <summary>
+            Updates the Active Case.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="auditHeader">Audit Header.</param>
+            <param name="activeCase">Active Case.</param>
+            <returns>Nothing.</returns>
+        </member>
+        <member name="T:Covid.Data.Repositories.AuditHeaders.AuditHeaderRepository">
+            <summary>
+            Audit Header Repository.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Repositories.AuditHeaders.AuditHeaderRepository.#ctor(Microsoft.Extensions.Logging.ILogger{Covid.Data.Repositories.AuditHeaders.AuditHeaderRepository},Covid.Data.DbContexts.DataContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Repositories.AuditHeaders.AuditHeaderRepository"/> class.
+            </summary>
+            <param name="logger">Logger.</param>
+            <param name="dataContext">Data context.</param>
+        </member>
+        <member name="M:Covid.Data.Repositories.AuditHeaders.AuditHeaderRepository.CreateAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails)">
+            <inheritdoc />
+        </member>
+        <member name="T:Covid.Data.Repositories.AuditHeaders.IAuditHeaderRepository">
+            <summary>
+            Audit Header Repository.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Repositories.AuditHeaders.IAuditHeaderRepository.CreateAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails)">
+            <summary>
+            Creates the Audit Header with Audit Details.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="auditHeader">Audit Header with Audit Details.</param>
+            <returns>Nothing.</returns>
+        </member>
+        <member name="T:Covid.Data.Repositories.Locations.ILocationRepository">
+            <summary>
+            Organisation Repository.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Repositories.Locations.ILocationRepository.CreateAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails,Covid.Domain.DomainObjects.Locations.ILocation)">
+            <summary>
+            Creates the Location.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="auditHeader">Audit Header.</param>
+            <param name="location">Location.</param>
+            <returns>Nothing.</returns>
+        </member>
+        <member name="M:Covid.Data.Repositories.Locations.ILocationRepository.GetAllAsync(Covid.Utilities.Models.Whos.IWho)">
+            <summary>
+            Gets all locations.
+            </summary>
+            <param name="who">Who details.</param>
+            <returns>List of Locations.</returns>
+        </member>
+        <member name="M:Covid.Data.Repositories.Locations.ILocationRepository.GetByIdAsync(Covid.Utilities.Models.Whos.IWho,System.Guid)">
+            <summary>
+            Gets the Location by Id.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="locationId">Location Id.</param>
+            <returns>Organisation (Null=Not Found).</returns>
+        </member>
+        <member name="M:Covid.Data.Repositories.Locations.ILocationRepository.HaveAsync(Covid.Utilities.Models.Whos.IWho)">
+            <summary>
+            Checks if we have Locations.
+            </summary>
+            <param name="who">Who details.</param>
+            <returns>True if Locations exist.</returns>
+        </member>
+        <member name="M:Covid.Data.Repositories.Locations.ILocationRepository.UpdateAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails,Covid.Domain.DomainObjects.Locations.ILocation)">
+            <summary>
+            Updates the Location.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="auditHeader">Audit Header.</param>
+            <param name="location">Location.</param>
+            <returns>Nothing.</returns>
+        </member>
+        <member name="T:Covid.Data.Repositories.Locations.LocationRepository">
+            <summary>
+            Organisation Header Repository.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Repositories.Locations.LocationRepository.#ctor(Microsoft.Extensions.Logging.ILogger{Covid.Data.Repositories.Locations.LocationRepository},Covid.Data.DbContexts.DataContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Repositories.Locations.LocationRepository"/> class.
+            </summary>
+            <param name="logger">Logger.</param>
+            <param name="dataContext">Data context.</param>
+        </member>
+        <member name="M:Covid.Data.Repositories.Locations.LocationRepository.CreateAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails,Covid.Domain.DomainObjects.Locations.ILocation)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Covid.Data.Repositories.Locations.LocationRepository.GetAllAsync(Covid.Utilities.Models.Whos.IWho)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Covid.Data.Repositories.Locations.LocationRepository.GetByIdAsync(Covid.Utilities.Models.Whos.IWho,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Covid.Data.Repositories.Locations.LocationRepository.HaveAsync(Covid.Utilities.Models.Whos.IWho)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Covid.Data.Repositories.Locations.LocationRepository.UpdateAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails,Covid.Domain.DomainObjects.Locations.ILocation)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Covid.Data.Repositories.RepositoryBase">
+            <summary>
+            Base class for all repositories.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.Repositories.RepositoryBase.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.Repositories.RepositoryBase"/> class.
+            </summary>
+            <param name="repositoryName">Repository Name.</param>
+        </member>
+        <member name="M:Covid.Data.Repositories.RepositoryBase.Tag(Covid.Utilities.Models.Whos.IWho,System.String)">
+            <summary>
+            Returns tag for use with .TagWith().
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="methodName">Method Name.</param>
+            <returns>Tag.</returns>
         </member>
         <member name="T:Covid.Data.Resources.ExceptionResource">
             <summary>
