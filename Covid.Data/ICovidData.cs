@@ -3,6 +3,7 @@
 // </copyright>
 
 using System.Threading.Tasks;
+using Covid.Data.Repositories.ActiveCases;
 using Covid.Data.Repositories.AuditHeaders;
 using Covid.Data.Repositories.Locations;
 using Covid.Domain.Constants;
@@ -17,6 +18,11 @@ namespace Covid.Data
     /// <seealso cref="System.IDisposable" />
     public interface ICovidData
     {
+        /// <summary>
+        /// Gets the Active Case Repository.
+        /// </summary>
+        IActiveCaseRepository ActiveCase { get; }
+
         /// <summary>
         /// Gets the Audit Header Repository.
         /// </summary>

@@ -75,5 +75,19 @@ namespace Covid.Data.Repositories.ActiveCases
             IActiveCase activeCase);
 
         #endregion Update
+
+        /// <summary>
+        /// Gets the active cases by location id between dates internal asynchronous.
+        /// </summary>
+        /// <param name="who">Who details.</param>
+        /// <param name="locationId">Location id.</param>
+        /// <param name="fromDate">From date.</param>
+        /// <param name="toDate">To date.</param>
+        /// <returns>List of Active Cases.</returns>
+        Task<IList<IActiveCase>> GetByLocationIdBetweenDatesInternalAsync(
+            IWho who,
+            Guid locationId,
+            DateTime fromDate,
+            DateTime toDate);
     }
 }

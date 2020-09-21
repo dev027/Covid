@@ -6,7 +6,7 @@
     <members>
         <member name="T:Covid.Service.CovidService">
             <summary>
-             Covid Service.
+            Covid Service.
             </summary>
         </member>
         <member name="M:Covid.Service.CovidService.#ctor(Microsoft.Extensions.Logging.ILogger{Covid.Service.ICovidService},Covid.Data.ICovidData)">
@@ -16,13 +16,41 @@
             <param name="logger">Logger.</param>
             <param name="data">Data layer.</param>
         </member>
+        <member name="M:Covid.Service.CovidService.CreateActiveCaseAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.Constants.EAuditEvent,Covid.Domain.DomainObjects.ActiveCases.IActiveCase)">
+            <inheritdoc />
+        </member>
+        <member name="M:Covid.Service.CovidService.GetActiveCasesByLocationIdBetweenDatesAsync(Covid.Utilities.Models.Whos.IWho,System.Guid,System.DateTime,System.DateTime)">
+            <inheritdoc />
+        </member>
         <member name="M:Covid.Service.CovidService.CreateLocationAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.Constants.EAuditEvent,Covid.Domain.DomainObjects.Locations.ILocation)">
+            <inheritdoc />
+        </member>
+        <member name="M:Covid.Service.CovidService.GetAllLocationsAsync(Covid.Utilities.Models.Whos.IWho)">
             <inheritdoc />
         </member>
         <member name="T:Covid.Service.ICovidService">
             <summary>
             Covid Service.
             </summary>
+        </member>
+        <member name="M:Covid.Service.ICovidService.CreateActiveCaseAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.Constants.EAuditEvent,Covid.Domain.DomainObjects.ActiveCases.IActiveCase)">
+            <summary>
+            Creates the Active Case asynchronous.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="auditEvent">Audit event.</param>
+            <param name="activeCase">Active Case.</param>
+            <returns>Nothing.</returns>
+        </member>
+        <member name="M:Covid.Service.ICovidService.GetActiveCasesByLocationIdBetweenDatesAsync(Covid.Utilities.Models.Whos.IWho,System.Guid,System.DateTime,System.DateTime)">
+            <summary>
+            Gets all active cases for location between dates asynchronous.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="locationId">Location Id.</param>
+            <param name="fromDate">From Date.</param>
+            <param name="toDate">To Date.</param>
+            <returns>List of Active Cases.</returns>
         </member>
         <member name="M:Covid.Service.ICovidService.CreateLocationAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.Constants.EAuditEvent,Covid.Domain.DomainObjects.Locations.ILocation)">
             <summary>
@@ -32,6 +60,13 @@
             <param name="auditEvent">Audit event.</param>
             <param name="location">Location.</param>
             <returns>Nothing.</returns>
+        </member>
+        <member name="M:Covid.Service.ICovidService.GetAllLocationsAsync(Covid.Utilities.Models.Whos.IWho)">
+            <summary>
+            Gets all locations asynchronous.
+            </summary>
+            <param name="who">Who details.</param>
+            <returns>List of Locations.</returns>
         </member>
     </members>
 </doc>

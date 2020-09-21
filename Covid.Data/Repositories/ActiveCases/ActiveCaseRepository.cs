@@ -46,10 +46,10 @@ namespace Covid.Data.Repositories.ActiveCases
             IActiveCase activeCase)
         {
             this.logger.LogTrace(
-                "ENTRY {Method}(who, activeCase) {@Who} {@ActiveCase}",
+                "ENTRY {Method}(who, params) {@Who} {@Params}",
                 nameof(this.CreateAsync),
                 who,
-                activeCase);
+                new { activeCase });
 
             ActiveCaseDto dto = ActiveCaseDto.ToDto(activeCase);
 
@@ -81,10 +81,10 @@ namespace Covid.Data.Repositories.ActiveCases
                 .ToList();
 
             this.logger.LogTrace(
-                "EXIT {Method}(who, activeCases) {@Who} {@ActiveCases}",
+                "EXIT {Method}(who, return) {@Who} {@Return}",
                 nameof(this.GetAllAsync),
                 who,
-                activeCases);
+                new { activeCases });
 
             return activeCases;
         }
@@ -93,10 +93,10 @@ namespace Covid.Data.Repositories.ActiveCases
         public async Task<IActiveCase> GetByIdAsync(IWho who, Guid activeCaseId)
         {
             this.logger.LogTrace(
-                "ENTRY {Method}(who, activeCaseId) {@Who} {ActiveCaseId}",
+                "ENTRY {Method}(who, params) {@Who} {@Params}",
                 nameof(this.GetByIdAsync),
                 who,
-                activeCaseId);
+                new { activeCaseId });
 
             IActiveCase activeCase = (await this.context.ActiveCases
                     .AsNoTracking()
@@ -106,10 +106,10 @@ namespace Covid.Data.Repositories.ActiveCases
                 .ToDomain();
 
             this.logger.LogTrace(
-                "EXIT {Method}(who, activeCase) {@Who} {@ActiveCase}",
+                "EXIT {Method}(who, return) {@Who} {@Return}",
                 nameof(this.GetByIdAsync),
                 who,
-                activeCase);
+                new { activeCase });
 
             return activeCase;
         }
@@ -128,10 +128,10 @@ namespace Covid.Data.Repositories.ActiveCases
                 .ConfigureAwait(false);
 
             this.logger.LogTrace(
-                "EXIT {Method}(who, haveActiveCases) {@Who} {HaveActiveCases}",
+                "EXIT {Method}(who, return) {@Who} {@Return}",
                 nameof(this.HaveAsync),
                 who,
-                haveActiveCases);
+                new { haveActiveCases });
 
             return haveActiveCases;
         }
@@ -143,10 +143,10 @@ namespace Covid.Data.Repositories.ActiveCases
             IActiveCase activeCase)
         {
             this.logger.LogTrace(
-                "ENTRY {Method}(who, activeCase) {@Who} {@ActiveCase}",
+                "ENTRY {Method}(who, params) {@Who} {@Params}",
                 nameof(this.UpdateAsync),
                 who,
-                activeCase);
+                new { activeCase });
 
             ActiveCaseDto dto = ActiveCaseDto.ToDto(activeCase);
             ActiveCaseDto original = await this.context.FindAsync<ActiveCaseDto>(activeCase.Id)
@@ -160,6 +160,46 @@ namespace Covid.Data.Repositories.ActiveCases
                 "EXIT {Method}(who) {@Who}",
                 nameof(this.UpdateAsync),
                 who);
+        }
+
+        /// <inheritdoc />
+        public async Task<IList<IActiveCase>> GetByLocationIdBetweenDatesInternalAsync(
+            IWho who,
+            Guid locationId,
+            DateTime fromDate,
+            DateTime toDate)
+        {
+            this.logger.LogTrace(
+                "ENTRY {Method}(who, params) {@Who} {@Params}",
+                nameof(this.UpdateAsync),
+                who,
+                new
+                {
+                    locationId,
+                    fromDate,
+                    toDate
+                });
+
+            IList<ActiveCaseDto> dtos = await this.context.ActiveCases
+                .AsNoTracking()
+                .TagWith(this.Tag(who, nameof(this.GetByLocationIdBetweenDatesInternalAsync)))
+                .Where(ac => ac.Location.Id == locationId)
+                .Where(ac => ac.Date >= fromDate)
+                .Where(ac => ac.Date <= toDate)
+                .ToListAsync()
+                .ConfigureAwait(false);
+
+            IList<IActiveCase> activeCases = dtos
+                .Select(ac => ac.ToDomain())
+                .ToList();
+
+            this.logger.LogTrace(
+                "EXIT {Method}(who) {@Who} {@Return}",
+                nameof(this.UpdateAsync),
+                who,
+                new { activeCases });
+
+            return activeCases;
         }
     }
 }

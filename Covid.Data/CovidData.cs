@@ -6,6 +6,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Covid.Data.DbContexts;
+using Covid.Data.Repositories.ActiveCases;
 using Covid.Data.Repositories.AuditHeaders;
 using Covid.Data.Repositories.Locations;
 using Covid.Domain.Constants;
@@ -28,19 +29,25 @@ namespace Covid.Data
         /// </summary>
         /// <param name="logger">Logger.</param>
         /// <param name="dataContext">Data Context.</param>
+        /// <param name="activeCaseRepository">Active Case Repository.</param>
         /// <param name="auditHeaderRepository">Audit Header Repository.</param>
         /// <param name="locationRepository">Location Repository.</param>
         public CovidData(
             ILogger<CovidData> logger,
             DataContext dataContext,
+            IActiveCaseRepository activeCaseRepository,
             IAuditHeaderRepository auditHeaderRepository,
             ILocationRepository locationRepository)
         {
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
             this.context = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
+            this.ActiveCase = activeCaseRepository ?? throw new ArgumentNullException(nameof(activeCaseRepository));
             this.AuditHeader = auditHeaderRepository ?? throw new ArgumentNullException(nameof(auditHeaderRepository));
             this.Location = locationRepository ?? throw new ArgumentNullException(nameof(locationRepository));
         }
+
+        /// <inheritdoc />
+        public IActiveCaseRepository ActiveCase { get; }
 
         /// <inheritdoc />
         public IAuditHeaderRepository AuditHeader { get; }

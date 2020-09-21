@@ -15,14 +15,18 @@
             Data access layer.
             </summary>
         </member>
-        <member name="M:Covid.Data.CovidData.#ctor(Microsoft.Extensions.Logging.ILogger{Covid.Data.CovidData},Covid.Data.DbContexts.DataContext,Covid.Data.Repositories.AuditHeaders.IAuditHeaderRepository,Covid.Data.Repositories.Locations.ILocationRepository)">
+        <member name="M:Covid.Data.CovidData.#ctor(Microsoft.Extensions.Logging.ILogger{Covid.Data.CovidData},Covid.Data.DbContexts.DataContext,Covid.Data.Repositories.ActiveCases.IActiveCaseRepository,Covid.Data.Repositories.AuditHeaders.IAuditHeaderRepository,Covid.Data.Repositories.Locations.ILocationRepository)">
             <summary>
             Initializes a new instance of the <see cref="T:Covid.Data.CovidData"/> class.
             </summary>
             <param name="logger">Logger.</param>
             <param name="dataContext">Data Context.</param>
+            <param name="activeCaseRepository">Active Case Repository.</param>
             <param name="auditHeaderRepository">Audit Header Repository.</param>
             <param name="locationRepository">Location Repository.</param>
+        </member>
+        <member name="P:Covid.Data.CovidData.ActiveCase">
+            <inheritdoc />
         </member>
         <member name="P:Covid.Data.CovidData.AuditHeader">
             <inheritdoc />
@@ -404,6 +408,11 @@
             </summary>
             <seealso cref="T:System.IDisposable" />
         </member>
+        <member name="P:Covid.Data.ICovidData.ActiveCase">
+            <summary>
+            Gets the Active Case Repository.
+            </summary>
+        </member>
         <member name="P:Covid.Data.ICovidData.AuditHeader">
             <summary>
             Gets the Audit Header Repository.
@@ -503,6 +512,9 @@
         <member name="M:Covid.Data.Repositories.ActiveCases.ActiveCaseRepository.UpdateAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails,Covid.Domain.DomainObjects.ActiveCases.IActiveCase)">
             <inheritdoc/>
         </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.ActiveCaseRepository.GetByLocationIdBetweenDatesInternalAsync(Covid.Utilities.Models.Whos.IWho,System.Guid,System.DateTime,System.DateTime)">
+            <inheritdoc />
+        </member>
         <member name="T:Covid.Data.Repositories.ActiveCases.IActiveCaseRepository">
             <summary>
             Organisation Repository.
@@ -547,6 +559,16 @@
             <param name="auditHeader">Audit Header.</param>
             <param name="activeCase">Active Case.</param>
             <returns>Nothing.</returns>
+        </member>
+        <member name="M:Covid.Data.Repositories.ActiveCases.IActiveCaseRepository.GetByLocationIdBetweenDatesInternalAsync(Covid.Utilities.Models.Whos.IWho,System.Guid,System.DateTime,System.DateTime)">
+            <summary>
+            Gets the active cases by location id between dates internal asynchronous.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="locationId">Location id.</param>
+            <param name="fromDate">From date.</param>
+            <param name="toDate">To date.</param>
+            <returns>List of Active Cases.</returns>
         </member>
         <member name="T:Covid.Data.Repositories.AuditHeaders.AuditHeaderRepository">
             <summary>
