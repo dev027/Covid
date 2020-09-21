@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Covid.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:Covid.WebApi.Controllers.WeatherForecastController">
+            <inheritdoc />
+        </member>
+        <member name="M:Covid.WebApi.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{Covid.WebApi.Controllers.WeatherForecastController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.WebApi.Controllers.WeatherForecastController"/> class.
+            </summary>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:Covid.WebApi.Controllers.WeatherForecastController.Get">
+            <summary>
+            Get Weather Forecast.
+            </summary>
+            <returns>Weather Forecast.</returns>
+        </member>
+        <member name="T:Covid.WebApi.Program">
+            <summary>
+            Main Program.
+            </summary>
+        </member>
+        <member name="M:Covid.WebApi.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Covid.WebApi.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">The arguments.</param>
+            <returns>Host Builder.</returns>
+        </member>
+        <member name="T:Covid.WebApi.Startup">
+            <summary>
+            Startup.
+            </summary>
+        </member>
+        <member name="M:Covid.WebApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.WebApi.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:Covid.WebApi.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+        </member>
+        <member name="M:Covid.WebApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the services.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:Covid.WebApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configures the specified application.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+        <member name="T:Covid.WebApi.WeatherForecast">
+            <summary>
+            Weather Forecast.
+            </summary>
+        </member>
+        <member name="P:Covid.WebApi.WeatherForecast.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:Covid.WebApi.WeatherForecast.TemperatureC">
+            <summary>
+            Gets or sets the temperature c.
+            </summary>
+            <value>
+            The temperature c.
+            </value>
+        </member>
+        <member name="P:Covid.WebApi.WeatherForecast.TemperatureF">
+            <summary>
+            Gets the temperature f.
+            </summary>
+            <value>
+            The temperature f.
+            </value>
+        </member>
+        <member name="P:Covid.WebApi.WeatherForecast.Summary">
+            <summary>
+            Gets or sets the summary.
+            </summary>
+            <value>
+            The summary.
+            </value>
+        </member>
+    </members>
+</doc>
