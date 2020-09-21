@@ -10,6 +10,35 @@
             </summary>
             <seealso cref="T:System.Attribute" />
         </member>
+        <member name="T:Covid.Data.CovidData">
+            <summary>
+            Data access layer.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.CovidData.#ctor(Microsoft.Extensions.Logging.ILogger{Covid.Data.CovidData},Covid.Data.DbContexts.DataContext,Covid.Data.Repositories.AuditHeaders.IAuditHeaderRepository,Covid.Data.Repositories.Locations.ILocationRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Data.CovidData"/> class.
+            </summary>
+            <param name="logger">Logger.</param>
+            <param name="dataContext">Data Context.</param>
+            <param name="auditHeaderRepository">Audit Header Repository.</param>
+            <param name="locationRepository">Location Repository.</param>
+        </member>
+        <member name="P:Covid.Data.CovidData.AuditHeader">
+            <inheritdoc />
+        </member>
+        <member name="P:Covid.Data.CovidData.Location">
+            <inheritdoc />
+        </member>
+        <member name="M:Covid.Data.CovidData.BeginTransactionAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.Constants.EAuditEvent)">
+            <inheritdoc />
+        </member>
+        <member name="M:Covid.Data.CovidData.CommitTransactionAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails)">
+            <inheritdoc />
+        </member>
+        <member name="M:Covid.Data.CovidData.RollbackTransaction(Covid.Utilities.Models.Whos.IWho)">
+            <inheritdoc />
+        </member>
         <member name="T:Covid.Data.DbContexts.DataContext">
             <summary>
             Database Context.
@@ -368,6 +397,44 @@
             <returns>
               <c>true</c> if the specified instance is collection; otherwise, <c>false</c>.
             </returns>
+        </member>
+        <member name="T:Covid.Data.ICovidData">
+            <summary>
+            Data Access Layer - Transactions.
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="P:Covid.Data.ICovidData.AuditHeader">
+            <summary>
+            Gets the Audit Header Repository.
+            </summary>
+        </member>
+        <member name="P:Covid.Data.ICovidData.Location">
+            <summary>
+            Gets the Location Repository.
+            </summary>
+        </member>
+        <member name="M:Covid.Data.ICovidData.BeginTransactionAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.Constants.EAuditEvent)">
+            <summary>
+            Begins the transaction.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="auditEvent">Audit Event.</param>
+            <returns>Audit Header.</returns>
+        </member>
+        <member name="M:Covid.Data.ICovidData.CommitTransactionAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.DomainObjects.AuditHeaders.IAuditHeaderWithAuditDetails)">
+            <summary>
+            Commits the transaction.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="auditHeader">Audit Header.</param>
+            <returns>Nothing.</returns>
+        </member>
+        <member name="M:Covid.Data.ICovidData.RollbackTransaction(Covid.Utilities.Models.Whos.IWho)">
+            <summary>
+            Rollbacks the Transaction.
+            </summary>
+            <param name="who">Who details.</param>
         </member>
         <member name="T:Covid.Data.Models.PropertyAttributeSummary">
             <summary>

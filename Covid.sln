@@ -3,26 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid.Utilities", "Covid.Utilities\Covid.Utilities.csproj", "{1C46CF58-BFBD-4DE7-8183-F832BC37CDBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid.Utilities", "Covid.Utilities\Covid.Utilities.csproj", "{1C46CF58-BFBD-4DE7-8183-F832BC37CDBA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Utilities", "01 Utilities", "{F6A1DC88-4A80-4A1C-994D-82A63C592E90}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 Domain", "02 Domain", "{15A81C68-4A2B-4629-B586-1874347B2529}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid.Domain", "Covid.Domain\Covid.Domain.csproj", "{A72D59CF-AD7E-4CDD-BD75-D6FBC7955069}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid.Domain", "Covid.Domain\Covid.Domain.csproj", "{A72D59CF-AD7E-4CDD-BD75-D6FBC7955069}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Data", "03 Data", "{D0379786-5A37-4F17-A99A-C216CB582B8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid.Data", "Covid.Data\Covid.Data.csproj", "{A2D850DB-02F2-49A4-8D1B-913726705D50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid.Data", "Covid.Data\Covid.Data.csproj", "{A2D850DB-02F2-49A4-8D1B-913726705D50}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "09 Migration", "09 Migration", "{017CFCC6-0513-4470-8F10-954162E6AB5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid.Migration", "Covid.Migration\Covid.Migration.csproj", "{CEFE150B-761E-46CA-93F1-03BE80582357}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid.Migration", "Covid.Migration\Covid.Migration.csproj", "{CEFE150B-761E-46CA-93F1-03BE80582357}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{086C881F-ADB9-4D56-B572-87D3CC779E0E}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 Service", "04 Service", "{A136209B-EED3-4BEF-938F-74A188BB225F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid.Service", "Covid.Service\Covid.Service.csproj", "{E0B43BC2-2286-4B27-9DC8-5153B75EBC20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +68,14 @@ Global
 		{CEFE150B-761E-46CA-93F1-03BE80582357}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CEFE150B-761E-46CA-93F1-03BE80582357}.Release|x64.ActiveCfg = Release|Any CPU
 		{CEFE150B-761E-46CA-93F1-03BE80582357}.Release|x64.Build.0 = Release|Any CPU
+		{E0B43BC2-2286-4B27-9DC8-5153B75EBC20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B43BC2-2286-4B27-9DC8-5153B75EBC20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B43BC2-2286-4B27-9DC8-5153B75EBC20}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E0B43BC2-2286-4B27-9DC8-5153B75EBC20}.Debug|x64.Build.0 = Debug|Any CPU
+		{E0B43BC2-2286-4B27-9DC8-5153B75EBC20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B43BC2-2286-4B27-9DC8-5153B75EBC20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0B43BC2-2286-4B27-9DC8-5153B75EBC20}.Release|x64.ActiveCfg = Release|Any CPU
+		{E0B43BC2-2286-4B27-9DC8-5153B75EBC20}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +85,7 @@ Global
 		{A72D59CF-AD7E-4CDD-BD75-D6FBC7955069} = {15A81C68-4A2B-4629-B586-1874347B2529}
 		{A2D850DB-02F2-49A4-8D1B-913726705D50} = {D0379786-5A37-4F17-A99A-C216CB582B8D}
 		{CEFE150B-761E-46CA-93F1-03BE80582357} = {017CFCC6-0513-4470-8F10-954162E6AB5D}
+		{E0B43BC2-2286-4B27-9DC8-5153B75EBC20} = {A136209B-EED3-4BEF-938F-74A188BB225F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E7B0C68-F915-4BDA-A930-D46E89CAF2E5}

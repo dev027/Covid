@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Covid.Service</name>
+    </assembly>
+    <members>
+        <member name="T:Covid.Service.CovidService">
+            <summary>
+             Covid Service.
+            </summary>
+        </member>
+        <member name="M:Covid.Service.CovidService.#ctor(Microsoft.Extensions.Logging.ILogger{Covid.Service.ICovidService},Covid.Data.ICovidData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid.Service.CovidService"/> class.
+            </summary>
+            <param name="logger">Logger.</param>
+            <param name="data">Data layer.</param>
+        </member>
+        <member name="M:Covid.Service.CovidService.CreateLocationAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.Constants.EAuditEvent,Covid.Domain.DomainObjects.Locations.ILocation)">
+            <inheritdoc />
+        </member>
+        <member name="T:Covid.Service.ICovidService">
+            <summary>
+            Covid Service.
+            </summary>
+        </member>
+        <member name="M:Covid.Service.ICovidService.CreateLocationAsync(Covid.Utilities.Models.Whos.IWho,Covid.Domain.Constants.EAuditEvent,Covid.Domain.DomainObjects.Locations.ILocation)">
+            <summary>
+            Creates the Location asynchronous.
+            </summary>
+            <param name="who">Who details.</param>
+            <param name="auditEvent">Audit event.</param>
+            <param name="location">Location.</param>
+            <returns>Nothing.</returns>
+        </member>
+    </members>
+</doc>
